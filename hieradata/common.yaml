@@ -1,0 +1,14 @@
+---
+puppet_server: 'puppetmaster.vm.local'
+
+packages:
+    vim: { ensure: present }
+    vim-puppet: { ensure: present }
+    tmux: { ensure: present }
+    git: { ensure: present }
+    tree: { ensure: present }
+    python-pip: { ensure: present }
+    rubygems: { ensure: present }
+
+    virtualenv: { ensure: present, provider: pip, require: Package[python-pip] }
+
