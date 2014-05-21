@@ -33,8 +33,9 @@ class common::profiles::puppetmaster(
     $use_puppetdb=hiera('profiles::puppetmaster::use_puppetdb',false),
     $use_puppetboard=hiera('profiles::puppetmaster::use_puppetboard',false)
 ) {
-  class {'apt':
-  }->
+
+  include apt
+  
   apt::source { 'puppetlabs':
     location   => 'http://apt.puppetlabs.com',
     repos      => 'main',
