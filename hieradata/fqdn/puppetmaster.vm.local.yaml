@@ -3,7 +3,7 @@ profiles::puppetmaster::reports: 'store,puppetdb'
 profiles::puppetmaster::enc: ''
 profiles::puppetmaster::runmode: 'cron'
 profiles::puppetmaster::dynamic_env: true
-profiles::puppetmaster::version: '3.4.3-1puppetlabs1'
+profiles::puppetmaster::version: '3.6.0-1puppetlabs1'
 
 profiles::puppetmaster::use_puppetdb: true
 profiles::puppetmaster::use_puppetboard: true

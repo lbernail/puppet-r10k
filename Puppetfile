@@ -5,7 +5,7 @@ mod 'puppetlabs/ntp'
 mod 'puppetlabs/apache'
 mod 'puppetlabs/concat'
 
-mod 'theforeman/puppet'
+mod 'theforeman/puppet', "2.1.2"
 mod 'theforeman/foreman'
 mod 'theforeman/concat_native'
 
