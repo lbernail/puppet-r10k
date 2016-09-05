@@ -7,8 +7,4 @@ packages:
     tmux: { ensure: present }
     git: { ensure: present }
     tree: { ensure: present }
-    python-pip: { ensure: present }
-    rubygems: { ensure: present }
-
-#    virtualenv: { ensure: present, provider: pip, require: Package[python-pip] }
 

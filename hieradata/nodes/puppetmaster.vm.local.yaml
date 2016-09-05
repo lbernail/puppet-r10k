@@ -6,5 +6,5 @@ profiles::puppetmaster::dynamic_env: true
 profiles::puppetmaster::version: 'present'
 
 profiles::puppetmaster::use_puppetdb: true
-profiles::puppetmaster::use_puppetboard: false
+profiles::puppetmaster::use_puppetboard: true
 profiles::puppetmaster::puppetboard_vhost: 'puppetboard.vm.local'

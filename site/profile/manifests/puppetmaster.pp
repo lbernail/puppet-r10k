@@ -53,9 +53,7 @@ class profile::puppetmaster(
   notice($use_puppetdb)
 
   if $use_puppetdb {
-    class { 'puppetdb':
-        database          => 'embedded',
-    }
+    class { 'puppetdb': }
 
     # No anchor in puppetdb module
     # We need ssl certificates to start jetty
@@ -71,22 +69,7 @@ class profile::puppetmaster(
     }
 
     if $use_puppetboard {
-
-      Python::Virtualenv {
-        path => ['/bin', '/usr/bin', '/usr/sbin', '/usr/local/bin' ],
-      }
-
-      include apache
-      include apache::mod::wsgi
-      include puppetboard
-
-      # No anchor in puppetboard module, first resource is group
-      Package['virtualenv']->Group['puppetboard']
-
-      # Access Puppetboard vhost
-      class { 'puppetboard::apache::vhost':
-            vhost_name => hiera('profiles::puppetmaster::puppetboard_vhost',$::fqdn)
-      }
+      class { 'puppetboard':}
     }
   }
 }
