@@ -2,6 +2,6 @@
 #
 #  Install packages
 #
-class profiles::base {
+class profile::base {
     include common::packages::install
 }
