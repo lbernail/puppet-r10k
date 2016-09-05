@@ -69,7 +69,9 @@ class profile::puppetmaster(
     }
 
     if $use_puppetboard {
-      class { 'puppetboard':}
+      class { 'puppetboard':
+        manage_virtualenv => "latest"
+      }
     }
   }
 }
