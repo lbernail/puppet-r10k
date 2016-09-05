@@ -69,8 +69,15 @@ class profile::puppetmaster(
     }
 
     if $use_puppetboard {
+      class { 'apache': }
+      class { 'apache::mod::wsgi': }
+
       class { 'puppetboard':
         manage_virtualenv => "latest"
+      }
+
+      class { 'puppetboard::apache::vhost':
+        vhost_name => hiera('profiles::puppetmaster::puppetboard_vhost',$::fqdn)
       }
     }
   }
