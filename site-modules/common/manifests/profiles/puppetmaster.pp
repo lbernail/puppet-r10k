@@ -35,7 +35,13 @@ class common::profiles::puppetmaster(
 ) {
 
   class { 'puppetserver::repository': } ->
-  class { 'puppetserver': }
+  class { 'puppetserver': 
+   config => {
+    'java_args'     => {
+      'xms'         => '512m',
+      'xmx'         => '512m'
+    } 
+  }
 
   if $use_puppetdb {
     class { 'puppetdb':

@@ -10,5 +10,5 @@ packages:
     python-pip: { ensure: present }
     rubygems: { ensure: present }
 
-    virtualenv: { ensure: present, provider: pip, require: Package[python-pip] }
+#    virtualenv: { ensure: present, provider: pip, require: Package[python-pip] }
 
