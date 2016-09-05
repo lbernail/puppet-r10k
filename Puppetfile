@@ -14,7 +14,7 @@ mod 'puppetlabs/puppetdb'
 mod 'puppetlabs/postgresql'
 mod 'puppetlabs/inifile'
 
-mod 'nibalizer/puppetboard'
+mod 'puppet/puppetboard'
 mod "puppetlabs/vcsrepo", "0.1.2"
 mod "stankevich/python"
 
