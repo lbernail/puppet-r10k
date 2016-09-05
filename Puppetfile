@@ -9,6 +9,7 @@ mod 'herculesteam/augeasproviders_core'
 mod 'camptocamp/augeas'
 mod 'camptocamp/puppetserver'
 
+mod 'puppetlabs/firewall'
 mod 'puppetlabs/puppetdb'
 mod 'puppetlabs/postgresql'
 mod 'puppetlabs/inifile'
