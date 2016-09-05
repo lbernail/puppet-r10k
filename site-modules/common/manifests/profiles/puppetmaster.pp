@@ -34,24 +34,8 @@ class common::profiles::puppetmaster(
     $use_puppetboard=hiera('profiles::puppetmaster::use_puppetboard',false)
 ) {
 
-  include apt
-  
-  apt::source { 'puppetlabs':
-    location   => 'http://apt.puppetlabs.com',
-    repos      => 'main',
-    key        => '4BD6EC30',
-    key_server => 'pgp.mit.edu',
-  }->
-  class { 'puppet':
-      server                      => true,
-      server_reports              => hiera('profiles::puppetmaster::reports','store'),
-      server_external_nodes       => hiera('profiles::puppetmaster::enc',''),
-      runmode                     => hiera('profiles::puppetmaster::runmode','cron'),
-      server_dynamic_environments => hiera('profiles::puppetmaster::dynamic_env',true),
-      server_common_modules_path  => [],
-      server_template             => 'common/profiles/puppet/server/puppet.conf.erb',
-      version                     => hiera('profiles::puppetmaster::version','present'),
-  }
+  class { 'puppetserver::repository': } ->
+  class { 'puppetserver': }
 
   if $use_puppetdb {
     class { 'puppetdb':
