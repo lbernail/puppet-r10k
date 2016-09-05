@@ -60,7 +60,7 @@ class profile::puppetmaster(
     # No anchor in puppetdb module
     # We need ssl certificates to start jetty
     # puppdb ssl-setup is performed at package installaion and requires ssl certificates for the node
-    Class['puppet::server']->Package['puppetdb']
+    Class['puppetserver']->Package['puppetdb']
 
 
     class { 'puppetdb::master::config':
