@@ -29,19 +29,28 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 
-class common::profiles::puppetmaster(
+class profile::puppetmaster(
     $use_puppetdb=hiera('profiles::puppetmaster::use_puppetdb',false),
     $use_puppetboard=hiera('profiles::puppetmaster::use_puppetboard',false)
 ) {
 
-  class { 'puppetserver::repository': } ->
-  class { 'puppetserver': 
-   config => {
-    'java_args'     => {
-      'xms'         => '512m',
-      'xmx'         => '512m'
-    } 
+  apt::source { 'puppetlabs':
+    location   => 'http://apt.puppetlabs.com',
+    repos      => 'main',
+    key        => {
+      id=> '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
+      server => 'pgp.mit.edu'
+    }
+  }->
+  class { 'puppetserver':
+    config => {
+      'java_args'     => {
+        'xms'   => '512m',
+        'xmx'   => '512m'
+      }
+    }
   }
+  notice($use_puppetdb)
 
   if $use_puppetdb {
     class { 'puppetdb':

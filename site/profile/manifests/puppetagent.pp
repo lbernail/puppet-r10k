@@ -11,7 +11,7 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 
-class common::profiles::puppetagent(
+class profile::puppetagent(
 ) {
 
   filebucket { 'puppetmaster':

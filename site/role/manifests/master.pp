@@ -3,6 +3,6 @@
 #
 
 class common::roles::master {
-  include ::common::profiles::base
-  include ::common::profiles::puppetmaster
+  include ::profiles::base
+  include ::profiles::puppetmaster
 }

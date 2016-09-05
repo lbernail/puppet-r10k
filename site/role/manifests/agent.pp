@@ -3,6 +3,6 @@
 #
 
 class common::roles::agent {
-  include ::common::profiles::base
-  include ::common::profiles::puppetagent
+  include ::profiles::base
+  include ::profiles::puppetagent
 }

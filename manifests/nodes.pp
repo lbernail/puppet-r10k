@@ -6,5 +6,5 @@ node 'default' {
 }
 
 node 'puppetmaster' {
-  include common::roles::master
+  include role::master
 }
