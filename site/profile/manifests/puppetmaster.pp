@@ -62,6 +62,10 @@ class profile::puppetmaster(
 
 
     class { 'puppetdb::master::config':
+      manage_routes           => true,
+      manage_storeconfigs     => true,
+      manage_report_processor => true,
+      enable_reports          => true,
       strict_validation       => false
     }
 
