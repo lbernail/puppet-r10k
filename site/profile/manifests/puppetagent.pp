@@ -30,15 +30,17 @@ class profile::puppetagent(
     path    => '/etc/puppetlabs/puppet/puppet.conf',
     section => 'agent',
     setting => 'server',
-    value   => "$puppetmaster"
+    value   => "$puppetmaster",
+    show_diff => true
   }
 
   ini_setting { "Node environment":
     ensure  => present,
     path    => '/etc/puppetlabs/puppet/puppet.conf',
     section => 'agent',
-    setting => 'server',
-    value   => "$environment"
+    setting => 'environment',
+    value   => "$environment",
+    show_diff => true
   }
 
 }

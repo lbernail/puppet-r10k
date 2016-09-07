@@ -50,7 +50,6 @@ class profile::puppetmaster(
       }
     }
   }
-  notice($use_puppetdb)
 
   if $use_puppetdb {
     class { 'puppetdb': }
