@@ -51,6 +51,10 @@ class profile::puppetmaster(
     }
   }
 
+  class { '::puppetserver::hiera::eyaml':
+    require => Class['puppetserver::install'],
+  }
+
   if $use_puppetdb {
     class { 'puppetdb': }
 
