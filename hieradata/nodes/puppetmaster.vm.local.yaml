@@ -4,4 +4,4 @@ profiles::puppetmaster::use_puppetdb: true
 profiles::puppetmaster::use_puppetboard: true
 profiles::puppetmaster::puppetboard_vhost: 'puppetboard.vm.local'
 
-node_environment: 'testpp4'
+node_environment: 'production'
