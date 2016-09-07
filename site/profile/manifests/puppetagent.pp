@@ -12,6 +12,8 @@
 #
 
 class profile::puppetagent(
+    $puppetmaster=hiera('puppet_server','puppet'),
+    $environment=hiera('node_environment','production')
 ) {
 
   filebucket { 'puppetmaster':
@@ -23,10 +25,20 @@ class profile::puppetagent(
     backup  => 'puppetmaster',
   }
 
-  class { 'puppet':
-      server                      => false,
-      runmode                     => hiera('profiles::puppetmaster::runmode','cron'),
-      version                     => 'present',
+  ini_setting { "Puppet server":
+    ensure  => present,
+    path    => '/etc/puppetlabs/puppet/puppet.conf',
+    section => 'agent',
+    setting => 'server',
+    value   => "$puppet_server"
+  }
+
+  ini_setting { "Node environement":
+    ensure  => present,
+    path    => '/etc/puppetlabs/puppet/puppet.conf',
+    section => 'agent',
+    setting => 'server',
+    value   => "$environment"
   }
 
 }

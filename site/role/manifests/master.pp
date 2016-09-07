@@ -5,4 +5,5 @@
 class role::master {
   include ::profile::base
   include ::profile::puppetmaster
+  include ::profile::agent
 }
