@@ -5,17 +5,17 @@ mod 'puppetlabs/ntp'
 mod 'puppetlabs/apache'
 mod 'puppetlabs/concat'
 
-mod 'theforeman/puppet', "2.1.2"
-mod 'theforeman/foreman'
-mod 'theforeman/concat_native'
+mod 'herculesteam/augeasproviders_core'
+mod 'camptocamp/augeas'
+mod 'camptocamp/puppetserver'
 
+mod 'puppetlabs/firewall'
 mod 'puppetlabs/puppetdb'
 mod 'puppetlabs/postgresql'
 mod 'puppetlabs/inifile'
 
-mod 'nibalizer/puppetboard'
-mod "puppetlabs/vcsrepo", "0.1.2"
+mod 'puppet/puppetboard'
+mod "puppetlabs/vcsrepo"
+mod "stahnma/epel"
 mod "stankevich/python"
 
-#mod "common",
-#  :git => "https://github.com/lbernail/puppet-common.git"
