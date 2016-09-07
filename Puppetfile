@@ -4,6 +4,7 @@ mod 'puppetlabs/apt'
 mod 'puppetlabs/ntp'
 mod 'puppetlabs/apache'
 mod 'puppetlabs/concat'
+mod 'puppetlabs/puppetserver_gem'
 
 mod 'herculesteam/augeasproviders_core'
 mod 'camptocamp/augeas'
