@@ -1,8 +1,7 @@
 node 'default' {
   include role::agent
 
-  notify { 'Default class for unknown node': }
-  -> notify { "Hello": }
+  notify { 'Default class for unknown node' }
 }
 
 node 'puppetmaster' {
