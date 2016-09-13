@@ -1,5 +1,5 @@
 node 'default' {
-  #  $message=hiera('common::message::gpg','No such key')
+  include role::agent
 
   notify { 'Default class for unknown node': }
   -> notify { "Hello": }
