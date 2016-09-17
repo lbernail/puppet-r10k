@@ -5,5 +5,13 @@ node 'default' {
 }
 
 node 'puppetmaster' {
-  include role::master_standalone
+  include role::master
+}
+
+node 'puppetdb' {
+  include role::puppetdb
+}
+
+node 'puppetreports' {
+  include role::puppetreports
 }
