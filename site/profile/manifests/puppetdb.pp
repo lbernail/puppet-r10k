@@ -1,4 +1,4 @@
-# == Class: profiles::puppetdb
+# == Class: profile::puppetdb
 #
 #  Install and configure puppetdb with local postgresql
 #
