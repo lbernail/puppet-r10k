@@ -1,6 +1,6 @@
-# == Class: profiles::puppetmaster
+# == Class: profiles::puppetmaster_standalone
 #
-#  Install and configure puppetmaster (using theforeman/puppet forge module
+#  Install and configure puppetmaster 
 #
 # === Parameters
 #
