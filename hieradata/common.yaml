@@ -1,5 +1,6 @@
 ---
 puppet_server: 'puppetmaster.vm.local'
+puppetdb: 'puppetdb.vm.local'
 
 packages:
     vim: { ensure: present }

@@ -29,7 +29,7 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 
-class profile::puppetmaster(
+class profile::puppetmaster-standalone(
     $use_puppetdb=hiera('profiles::puppetmaster::use_puppetdb',false),
     $use_puppetboard=hiera('profiles::puppetmaster::use_puppetboard',false)
 ) {
