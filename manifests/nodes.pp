@@ -5,5 +5,5 @@ node 'default' {
 }
 
 node 'puppetmaster' {
-  include role::master
+  include role::master_standalone
 }
