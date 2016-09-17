@@ -1,4 +1,4 @@
-# == Class: common::roles::agent
+# == Class: role::agent
 # Include profiles for a basic agent role (base and agent)
 #
 
