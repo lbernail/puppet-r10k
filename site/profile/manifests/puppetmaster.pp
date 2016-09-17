@@ -52,7 +52,7 @@ class profile::puppetmaster(
   if $use_puppetdb {
 
     class { 'puppetdb::master::config':
-      puppetdb_host           => hiera('puppetdb_host'),
+      puppetdb_server         => hiera('puppetdb_host'),
       manage_routes           => true,
       manage_storeconfigs     => true,
       manage_report_processor => true,
