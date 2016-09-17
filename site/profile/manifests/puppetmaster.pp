@@ -52,12 +52,13 @@ class profile::puppetmaster(
   if $use_puppetdb {
 
     class { 'puppetdb::master::config':
-      puppetdb_server         => hiera('puppetdb_host'),
-      manage_routes           => true,
-      manage_storeconfigs     => true,
-      manage_report_processor => true,
-      enable_reports          => true,
-      strict_validation       => false
+      puppetdb_server             => hiera('puppetdb_host'),
+      manage_routes               => true,
+      manage_storeconfigs         => true,
+      manage_report_processor     => true,
+      enable_reports              => true,
+      strict_validation           => false,
+      puppetdb_soft_write_failure => true
     }
 
   }
