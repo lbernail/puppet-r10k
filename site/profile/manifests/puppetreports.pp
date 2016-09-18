@@ -16,6 +16,12 @@
 class profile::puppetreports(
 ) {
 
+  class { 'apache': }
+  class { 'apache::mod::wsgi': }
+  class { 'puppetboard::apache::vhost':
+    vhost_name => hiera('profiles::puppetboard::puppetboard_vhost',$::fqdn)
+  }
+
   $ssl_dir = $::settings::ssldir
   $puppetboard_certname = $::certname
   class { 'puppetboard':
@@ -27,4 +33,5 @@ class profile::puppetreports(
     puppetdb_ssl_verify => true,
     puppetdb_cert       => "${ssl_dir}/certs/${puppetboard_certname}.pem",
   }
+
 }

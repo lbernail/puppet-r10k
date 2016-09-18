@@ -12,8 +12,7 @@
 #
 
 class profile::puppetagent(
-    $puppetmaster=hiera('puppet_server','puppet'),
-    $environment=hiera('node_environment','production')
+    $puppetmaster=hiera('puppet_server','puppet')
 ) {
 
   filebucket { 'puppetmaster':
@@ -31,15 +30,6 @@ class profile::puppetagent(
     section => 'agent',
     setting => 'server',
     value   => "$puppetmaster",
-    show_diff => true
-  }
-
-  ini_setting { "Node environment":
-    ensure  => present,
-    path    => '/etc/puppetlabs/puppet/puppet.conf',
-    section => 'agent',
-    setting => 'environment',
-    value   => "$environment",
     show_diff => true
   }
 
