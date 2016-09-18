@@ -45,9 +45,9 @@ class profile::puppetmaster(
     }
   }
 
-  file { '/etc/ntp.conf':
+  file { "$::settings/autosign.conf":
     ensure  => file,
-    content => template('profile/templates/puppetmaster/autosign.conf.epp'),
+    content => epp('profile/puppetmaster/autosign.conf.epp',{ 'autosign_hosts' => hiera('profiles::puppetmaster::autosign_hosts',[])}), 
   }
 
   class { '::puppetserver::hiera::eyaml':

@@ -1,5 +1,5 @@
-<% if $profiles::master::autosign_hosts ~= Array -%>
-<% $profiles::master::autosign_hosts.each |$host| { -%>
+<% if $autosign_hosts =~ Array { -%>
+<% $autosign_hosts.each |$host| { -%>
 <%= $host %>
 <% } -%>
-<% end -%>
+<% } -%>
