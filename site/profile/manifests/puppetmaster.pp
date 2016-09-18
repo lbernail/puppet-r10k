@@ -45,6 +45,11 @@ class profile::puppetmaster(
     }
   }
 
+  file { '/etc/ntp.conf':
+    ensure  => file,
+    content => template('profile/templates/puppetmaster/autosign.conf.epp'),
+  }
+
   class { '::puppetserver::hiera::eyaml':
     require => Class['puppetserver::install'],
   }
