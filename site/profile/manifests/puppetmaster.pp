@@ -45,9 +45,10 @@ class profile::puppetmaster(
     }
   }
 
-  file { "$::settings/autosign.conf":
+  $confdir = $::settings::confdir
+  file { "${confdir}/autosign.conf":
     ensure  => file,
-    content => epp('profile/puppetmaster/autosign.conf.epp',{ 'autosign_hosts' => hiera('profiles::puppetmaster::autosign_hosts',[])}), 
+    content => epp('profile/puppetmaster/autosign.conf.epp',{ 'autosign_hosts' => hiera('profiles::puppetmaster::autosign_hosts',[])}),
   }
 
   class { '::puppetserver::hiera::eyaml':
