@@ -33,4 +33,8 @@ class profile::puppetagent(
     show_diff => true
   }
 
+  service { 'puppet':
+    ensure => running,
+    enable => true  
+  }
 }
