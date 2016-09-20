@@ -35,7 +35,7 @@ class profile::puppetmaster(
       id=> '47B320EB4C7C375AA9DAE1A01054B7A24BD6EC30',
       server => 'pgp.mit.edu'
     }
-  }->
+  }
   class { 'puppetserver':
     config => {
       'java_args'     => {
@@ -44,6 +44,7 @@ class profile::puppetmaster(
       }
     }
   }
+  contain 'puppetserver'
 
   $confdir = $::settings::confdir
   file { "${confdir}/autosign.conf":
@@ -54,6 +55,7 @@ class profile::puppetmaster(
   class { '::puppetserver::hiera::eyaml':
     require => Class['puppetserver::install'],
   }
+  contain '::puppetserver::hiera::eyaml'
 
   if $use_puppetdb {
 
@@ -66,6 +68,7 @@ class profile::puppetmaster(
       strict_validation           => false,
       puppetdb_soft_write_failure => true
     }
+    contain 'puppetdb::master::config'
 
   }
 }
