@@ -3,7 +3,9 @@
 #
 
 class role::master{
-  contain ::profile::base
-  contain ::profile::puppetmaster
-  contain ::profile::puppetagent
+  include profile::base
+  include profile::puppetmaster
+  include profile::puppetagent
+
+  Class['profile::base']->Class['profile::puppetmaster']->Class['profile::puppetagent']
 }
