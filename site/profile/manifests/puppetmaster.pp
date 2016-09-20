@@ -44,7 +44,8 @@ class profile::puppetmaster(
       }
     }
   }
-  contain 'puppetserver'
+  # Ensure server starts before agent to avoid key issues
+  Service['puppetserver']->Service['puppet']
 
   $confdir = $::settings::confdir
   file { "${confdir}/autosign.conf":
@@ -55,7 +56,6 @@ class profile::puppetmaster(
   class { '::puppetserver::hiera::eyaml':
     require => Class['puppetserver::install'],
   }
-  contain '::puppetserver::hiera::eyaml'
 
   if $use_puppetdb {
 
@@ -68,7 +68,6 @@ class profile::puppetmaster(
       strict_validation           => false,
       puppetdb_soft_write_failure => true
     }
-    contain 'puppetdb::master::config'
 
   }
 }
