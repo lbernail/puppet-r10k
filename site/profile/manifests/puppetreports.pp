@@ -17,7 +17,9 @@ class profile::puppetreports(
 ) {
 
   class { 'apache': }
-  class { 'apache::mod::wsgi': }
+  class { 'apache::mod::wsgi':
+    wsgi_socket_prefix => "/var/run/wsgi",
+  }
   class { 'puppetboard::apache::vhost':
     vhost_name => hiera('profiles::puppetboard::puppetboard_vhost',$::fqdn)
   }

@@ -4,7 +4,6 @@ puppetdb_host: 'puppetdb.vm.local'
 
 packages:
     vim: { ensure: present }
-    vim-puppet: { ensure: present }
     tmux: { ensure: present }
     git: { ensure: present }
     tree: { ensure: present }
